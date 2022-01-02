@@ -1,5 +1,5 @@
 {
-    "name": "informaid/informaid_suggestion",
+    "name": "informaid/informaid_suggestions",
     "description": "Suggestions and preprocesses for Informaid website.",
     "type": "drupal-custom-module",
     "license": "GPL-2.0-or-later",
@@ -10,10 +10,10 @@
         }
     ],
     "minimum-stability": "stable",
-    "homepage": "https://github.com/EIRL-INFORMAID-RONDEAU/drupalmodule_informaid_suggestion",
+    "homepage": "https://github.com/EIRL-INFORMAID-RONDEAU/drupalmodule_informaid_suggestions",
     "support": {
-        "issues": "https://github.com/EIRL-INFORMAID-RONDEAU/drupalmodule_informaid_suggestion/issues",
-        "source": "https://github.com/EIRL-INFORMAID-RONDEAU/drupalmodule_informaid_suggestion.git"
+        "issues": "https://github.com/EIRL-INFORMAID-RONDEAU/drupalmodule_informaid_suggestions/issues",
+        "source": "https://github.com/EIRL-INFORMAID-RONDEAU/drupalmodule_informaid_suggestions.git"
     },
     "extra": {
         "branch-alias": {
