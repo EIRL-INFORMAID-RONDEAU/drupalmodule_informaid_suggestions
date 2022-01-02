@@ -1,0 +1,5 @@
+services:
+  informaid.route_subscriber:
+    class: Drupal\informaid_suggestions\Routing\RouteSubscriber
+    tags:
+      - { name: event_subscriber }

@@ -1,0 +1,85 @@
+<?php
+
+/**
+ * @file
+ * Function to suggestion templates.
+ */
+
+use Drupal\core\Url;
+
+/**
+ * Implements hook_theme_suggestions_alter().
+ */
+function informaid_suggestions_theme_suggestions_alter(array &$suggestions, array $variables, $hook) {
+  if ($hook == 'views_view_fields') {
+    $suggestions[] = $variables['view']->id() . '__' . $hook;
+  }
+}
+
+/**
+ * Implements template_preprocess_image.
+ *
+ * @param array $variables
+ *   Param array of variable for template.
+ */
+function informaid_suggestions_preprocess_image(array &$variables) {
+  $variables['attributes']['class'][] = 'img-responsive';
+  if ($variables['style_name'] === 'picto_70x70') {
+    $variables['attributes']['class'] = [
+      'img-responsive',
+      'center-block',
+    ];
+  }
+  if ($variables['style_name'] !== 'slide_width_500' && substr($variables['directory'], 0, 5) !== 'core/') {
+    $variables['attributes']['class'][] = 'lazy';
+    if (!empty($variables['attributes']) && !empty($variables['attributes']['src'])) {
+      $variables['attributes']['data-src'] = $variables['attributes']['src'];
+      $variables['attributes']['class'][] = 'lazy';
+      $variables['attributes']['src'] = "";
+    }
+  }
+}
+
+/**
+ * Preprocess block.
+ *
+ * @param array $variables
+ *   Array by reference.
+ */
+function informaid_suggestions_preprocess_block(array &$variables) {
+  if ($variables['plugin_id'] == 'system_powered_by_block') {
+    $markup = '<span>Powered by ';
+    $markup .= '<a href="https://www.drupal.org">Drupal';
+    $markup .= '<img src="/themes/custom/informaid/images/drupal_8.png" class="logo--drupal" alt="{{ \'Drupal logo\'|trans }}">';
+    $markup .= '</a></span>';
+    $variables['content']['#markup'] = $markup;
+  }
+}
+
+/**
+ * Preprocess node.
+ *
+ * @param array $variables
+ *   Array by reference.
+ */
+function informaid_suggestions_preprocess_node(array &$variables, string $hook) {
+  $link = [
+    '#type' => 'link',
+    '#url' => Url::fromRoute('system.admin'),
+    '#title' => t('Administration pages'),
+    '#attributes' => [
+      'target' => '_blank',
+    ],
+  ];
+
+  $variables['mylink'] = $link;
+
+  $variables['details'] = [
+    '#type' => 'markup',
+    '#markup' => '$link = [<br>&nbsp;&nbsp;\'#type\' => \'link\'<br>'
+    . '&nbsp;&nbsp;\'#url\' => Url::fromRoute(\'system.admin\'),<br>'
+    . '&nbsp;&nbsp;\'#title\' => t(\'Administration pages\'),<br>'
+    . '&nbsp;&nbsp;\'#attributes\' => [ <br>'
+    . '&nbsp;&nbsp;\'target\' => \'_blank\'<br>&nbsp;&nbsp;]<br>];',
+  ];
+}

@@ -1,0 +1,24 @@
+{
+    "name": "informaid/informaid_suggestion",
+    "description": "Suggestions and preprocesses for Informaid website.",
+    "type": "drupal-custom-module",
+    "license": "GPL-2.0-or-later",
+    "authors": [
+        {
+            "name": "FabRondeau",
+            "email": "fabienne.rondeau@informaid.fr"
+        }
+    ],
+    "minimum-stability": "stable",
+    "homepage": "https://github.com/EIRL-INFORMAID-RONDEAU/drupalmodule_informaid_suggestion",
+    "support": {
+        "issues": "https://github.com/EIRL-INFORMAID-RONDEAU/drupalmodule_informaid_suggestion/issues",
+        "source": "https://github.com/EIRL-INFORMAID-RONDEAU/drupalmodule_informaid_suggestion.git"
+    },
+    "extra": {
+        "branch-alias": {
+            "dev-8.x-1.x": "1.x-dev"
+        }
+    }
+
+}
