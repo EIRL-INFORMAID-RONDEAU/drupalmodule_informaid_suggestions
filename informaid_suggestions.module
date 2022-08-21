@@ -32,10 +32,12 @@ function informaid_suggestions_preprocess_image(array &$variables) {
   }
   if ($variables['style_name'] !== 'slide_width_500' && substr($variables['directory'], 0, 5) !== 'core/') {
     $variables['attributes']['class'][] = 'lazy';
-    if (!empty($variables['attributes']) && !empty($variables['attributes']['src'])) {
-      $variables['attributes']['data-src'] = $variables['attributes']['src'];
+    if (!empty($variables['attributes']) && !empty($variables['attributes']['src']) && !empty($variables['attributes']['loading'])) {
+      if($variables['attributes']['loading'] === 'lazy' ) {
+        $variables['attributes']['data-src'] = $variables['attributes']['src'];
       $variables['attributes']['class'][] = 'lazy';
       $variables['attributes']['src'] = "";
+      }
     }
   }
 }
